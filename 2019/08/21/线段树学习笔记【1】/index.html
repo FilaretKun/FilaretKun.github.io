@@ -18,8 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/08/21/5ICpQYuy94ALljT.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/21/MYSCgFtRkanlW46.png">
-<meta property="og:image" content="https://i.loli.net/2019/08/21/aUAY8BP2WDfJ4yL.jpg">
-<meta property="og:updated_time" content="2019-08-22T07:54:56.131Z">
+<meta property="og:updated_time" content="2019-08-22T08:35:55.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线段树学习笔记 单点修改+区间查询">
 <meta name="twitter:description" content="概述线段树 (Segment Tree) 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到log级别。 因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就100%能确定是线段树的题了。">
@@ -182,19 +181,23 @@
 <p>▼为根据以上数据建的图</p>
 <p><img src="https://i.loli.net/2019/08/21/5ICpQYuy94ALljT.png" alt></p>
 <p>可见，线段树的思想和二分法有那么一点相似：都是将一个区间分为两份，再在其中进行具体操作。在上图之中标为浅灰的<strong>叶节点</strong>均为数据中出现的单个数。它的父节点代表了对它的两个子节点进行如题的求最小值操作的结果。</p>
-<h3 id="build-操作"><a href="#build-操作" class="headerlink" title="build()操作"></a><code>build()</code>操作</h3><p>Build，意为构造。其可以根据数据和题意将整个线段树构建出来。现在我们设存放线段树的数组为<code>mins (Minimum of Segment)</code>。假设某节点下标为<code>i</code>，则其左儿子（若存在）下标为<code>2*i</code>，右儿子（若存在）下表为<code>2*i+1</code>。</p>
+<h3 id="build-操作"><a href="#build-操作" class="headerlink" title="build()操作"></a><code>build()</code>操作</h3><p>Build，意为构造。其可以根据数据和题意将整个线段树构建出来。现在我们设存放线段树的数组为<code>mins (Minimum of Segment)</code>。假设某节点下标为<code>i</code>，则其左儿子（若存在）下标为<code>2*i</code>，右儿子（若存在）下标为<code>2*i+1</code>。</p>
 <p>▼使用递归+回溯写出的代码段</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">10000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> mins[<span class="number">4</span> * MAXN], a[MAXN]; <span class="comment">// a数组为输入的数据</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123; <span class="comment">// id为上述的下标，l和r分别为左边界和右边界</span></span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 如果此时l==r，也就是此节点为叶节点时</span></span><br><span class="line">        mins[id] = a[l]; <span class="comment">// 直接赋值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 这里求一个区间分为两份的切割点</span></span><br><span class="line">    build(id * <span class="number">2</span>, l, mid); <span class="comment">// 构造左儿子</span></span><br><span class="line">    build(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r); <span class="comment">// 构造右儿子</span></span><br><span class="line">    mins[id] = min(mins[id * <span class="number">2</span>], mins[id * <span class="number">2</span> + <span class="number">1</span>]); <span class="comment">// 为不是叶节点的线段节点按照题目要求赋值</span></span><br><span class="line">    <span class="keyword">return</span>; <span class="comment">// 加上无用return辟邪（雾）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>复杂度为$Θ(n)$。</p>
 <h3 id="update-操作"><a href="#update-操作" class="headerlink" title="update()操作"></a><code>update()</code>操作</h3><p>Update, 意为更新。在这篇博文中主要实现单点更新。</p>
-<p>在进行<code>update()</code>时大可不必将线段树整个重新<code>build()</code>一下（那样复杂度又成n了还不如直接打暴力<code>╰（‵□′）╯</code>）……</p>
-<p><del>动动你聪明的脑筋</del>其实<code>update</code>影响的只是那个节点向上的一条链。就比如说我们将之前的<code>a[6]</code>元素从<code>-4</code>改成<code>-1028</code>，那么我们需要需要修改的知识标红的线段。</p>
+<p>在进行<code>update()</code>时大可不必将线段树整个重新<code>build()</code>一下（那样复杂度又成n了还不如直接打暴力╰（‵□′）╯）……</p>
+<p><del>动动你聪明的脑筋</del>其实<code>update</code>影响的只是那个节点向上的一条链。就比如说我们将之前的<code>a[6]</code>元素从<code>-4</code>改成<code>-1028</code>，那么我们需要需要修改的只是标红的线段。</p>
 <p>▼如下：</p>
 <p><img src="https://i.loli.net/2019/08/21/MYSCgFtRkanlW46.png" alt></p>
 <p>那么很容易我们就能写出<code>update()</code>的代码。这里选用从上向下修改的代码，我们的目标是将<code>op (operated)</code>位置上的数修改为<code>nnum (new number)</code>。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> op, <span class="keyword">int</span> nnum)</span> </span>&#123; <span class="comment">// id，l，r的意义如上</span></span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 我们找到了大宝贝</span></span><br><span class="line">        mins[id] = nnum; <span class="comment">// 赋完值</span></span><br><span class="line">        <span class="keyword">return</span>; <span class="comment">// 就跑</span></span><br><span class="line">    &#125; <span class="comment">// 贼刺激</span></span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 找中间点来康康op在哪边</span></span><br><span class="line">    <span class="keyword">if</span>(op &lt;= mid) &#123; <span class="comment">// 在左边或就是mid</span></span><br><span class="line">        update(id * <span class="number">2</span>, l, mid, op, nnum); <span class="comment">// op和nnun恒不变</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; <span class="comment">// 在右边</span></span><br><span class="line">        update(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r, op, nnum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>; <span class="comment">// 无用return辟邪</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>复杂度为$Θ(log(n))$。</p>
-<p><img src="https://i.loli.net/2019/08/21/aUAY8BP2WDfJ4yL.jpg" alt></p>
+<h3 id="point-query-操作"><a href="#point-query-操作" class="headerlink" title="point_query()操作"></a><code>point_query()</code>操作</h3><p>Point query，意为单点查询。</p>
+<p>和单点更新有相似之处，都是一条链走到叶节点。利用类似二分查找的方式查找即可。我们设<code>x</code>为我们要查找的元素的下标，则很容易写出如下代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">point_query</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> x)</span> </span>&#123; <span class="comment">// id, l, r, x意义如上</span></span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 找到了只有一个元素的线段（叶节点)</span></span><br><span class="line">        <span class="keyword">return</span> mins[id]; <span class="comment">//返回找到的值即可</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 计算船新的mid值</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= mid) &#123; <span class="comment">// 在左边</span></span><br><span class="line">        <span class="keyword">return</span> point_query(id * <span class="number">2</span>, l, mid, x); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; <span class="comment">// 在右边</span></span><br><span class="line">        <span class="keyword">return</span> point_query(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r, x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>; <span class="comment">// 无意义return保平安</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>复杂度和单点更新一样，为$Θ(log(n))$。</p>
+<h3 id="segment-query-操作"><a href="#segment-query-操作" class="headerlink" title="segment_query()操作"></a><code>segment_query()</code>操作</h3><p>Segment query，意为区间查询。</p>
 
       
 
@@ -310,6 +313,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/08/22/20190822NCPJ4C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          解题记录 20190822牛客网普及组模拟赛C题 火龙果田
+        
+      </div>
+    </a>
   
   
     <a href="/2019/08/21/最短路算法及优化一览/" id="article-nav-older" class="article-nav-link-wrap">
@@ -498,6 +510,22 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NowCoder</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">普及</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">做题记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -653,21 +681,5 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
 </body>
 </html>
