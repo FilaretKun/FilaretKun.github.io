@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/8 | Filaret&#39;s Blooooooooooog</title>
+  <title>解题记录 20190822牛客网提高组模拟赛A题 麻将 | Filaret&#39;s Blooooooooooog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="初二弱鸡C++ OIER">
-<meta name="keywords" content="OI,日常,砸电脑,瞎搞">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Filaret&#39;s Blooooooooooog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/08/index.html">
+  <meta name="description" content="概述很玄乎的题面…… 总之这题需要好好读题…… 这题需要的语文理解能力非常高…… 然后做的话就前缀和+DP爽就完事了">
+<meta name="keywords" content="OI,NowCoder,提高,做题记录,DP,前缀和,区间DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解题记录 20190822牛客网提高组模拟赛A题 麻将">
+<meta property="og:url" content="http://yoursite.com/2019/08/22/20190822NCTG4A/index.html">
 <meta property="og:site_name" content="Filaret&#39;s Blooooooooooog">
-<meta property="og:description" content="初二弱鸡C++ OIER">
+<meta property="og:description" content="概述很玄乎的题面…… 总之这题需要好好读题…… 这题需要的语文理解能力非常高…… 然后做的话就前缀和+DP爽就完事了">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-22T15:35:41.974Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Filaret&#39;s Blooooooooooog">
-<meta name="twitter:description" content="初二弱鸡C++ OIER">
+<meta name="twitter:title" content="解题记录 20190822牛客网提高组模拟赛A题 麻将">
+<meta name="twitter:description" content="概述很玄乎的题面…… 总之这题需要好好读题…… 这题需要的语文理解能力非常高…… 然后做的话就前缀和+DP爽就完事了">
   
     <link rel="alternative" href="/atom.xml" title="Filaret&#39;s Blooooooooooog" type="application/atom+xml">
   
@@ -148,36 +149,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-20190822NCTG4A" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/22/20190822NCTG4A/" class="archive-article-date">
-  	<time datetime="2019-08-22T15:21:00.985Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/22/20190822NCTG4A/">解题记录 20190822牛客网提高组模拟赛A题 麻将</a>
+    <h1 class="article-title" itemprop="name">
+      解题记录 20190822牛客网提高组模拟赛A题 麻将
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/08/22/20190822NCTG4A/" class="archive-article-date">
+  	<time datetime="2019-08-22T15:21:00.985Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>很玄乎的题面…… 总之这题需要好好读题……</p>
+<p>这题需要的语文理解能力非常高…… 然后做的话就前缀和+DP<del>爽就完事了</del></p>
+<a id="more"></a>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://ac.nowcoder.com/acm/contest/933/A" target="_blank" rel="noopener">链接</a><br>来源：NowCoder</p>
+<p>又是放假的一天，三上千织在玩麻将</p>
+<p>可是并没有牌友来…一姬不在，八木唯和藤田加奈也没来，她只能自己一个人玩了</p>
+<p>众所周知，麻将有两面，为了方便，我们把正面记为1，反面记为0。三上千织把麻将摆成了一个$c \times kc×k$的矩阵，也就是01矩阵，现在她想问你，其中最大的全1正方形有多大呢？</p>
+<p>等等…还没问出口，智商181的三上千织就把这题秒了，她很快就写出了DP的状态转移方程，设$f_{i,j}$为以节点i,j为右下角，可构成的最大正方形的边长。那么$f_{i,j}=min(f_{i-1,j},f_{i,j-1},f_{i-1,j-1})+1(a[i][j]=1)$。</p>
+<p>想到这里，千织又想到一个问题，如果允许她把两行麻将交换（也就是矩阵中的两行，可以交换无数次），那么最大的全1矩阵有多大呢？</p>
+<h3 id="输入描述："><a href="#输入描述：" class="headerlink" title="输入描述："></a>输入描述：</h3><p>第一行两个整数$n$,$m$，表示矩阵的大小</p>
+<p>接下来$n$行，每行一个长度为$m$的序列，且序列的元素为$1$或$0$，表示这个矩阵的一行</p>
+<h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h3><p>输出一行一个整数，表示你的答案</p>
+<hr>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>这道题非常坑…… 输入的是布尔型变量没法用<code>scanf</code>把活端端的正解卡到了70分。<del>codesonic卡<code>cin</code>魔鬼</del></p>
+<p>可以考虑用<code>char</code>数组来存，就可以直接用最快的<code>getchar</code>来输入。</p>
+<hr>
+<h2 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h2><p>这玩意好像也算不上前缀和吧…… 不过题目带这个标签就用这个名字好了。</p>
+<p>就是说每个$sum_{i,j}$，表示第$i$行第$j$个元素之前（包括本身）有多少个连续的1。这样的话就可以用一个数覆盖之前的好多数。</p>
+<hr>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>就是说对于每一列都要提取到$dp$数组里进行排序成一个类似直角三角形的东西。然后对于每一列可以$Θ(n)$求解。</p>
+<p>答案记到变量里求$max$就行了。并不用开$LL$。</p>
+<hr>
+<h2 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h2><p>这题<a href="http://acm.hdu.edu.cn/showproblem.php?pid=2830" target="_blank" rel="noopener">重题</a>了……</p>
+<hr>
+<h2 id="我的参考代码"><a href="#我的参考代码" class="headerlink" title="我的参考代码"></a>我的参考代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">5000</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, M;</span><br><span class="line"><span class="keyword">char</span> brd[MAXN][MAXN];</span><br><span class="line"><span class="keyword">int</span> sum[MAXN][MAXN], ans;</span><br><span class="line"><span class="keyword">int</span> dp[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= N ; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span> ; j &lt;= M ; j ++) &#123;</span><br><span class="line">            <span class="keyword">while</span>(brd[i][j] != <span class="string">'0'</span> &amp;&amp; brd[i][j] != <span class="string">'1'</span>) &#123;</span><br><span class="line">                brd[i][j] = getchar();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= N ; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span> ; j &lt;= M ; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(brd[i][j] == <span class="string">'0'</span>) &#123;</span><br><span class="line">                sum[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                sum[i][j] = sum[i][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= M ; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span> ; j &lt;= N ; j ++) &#123;</span><br><span class="line">            dp[j] = sum[j][i];</span><br><span class="line">        &#125;</span><br><span class="line">        sort(dp + <span class="number">1</span>, dp + N + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = N ; j &gt;= <span class="number">1</span> ; j --) &#123;</span><br><span class="line">            ans = max(ans, dp[j] * (N - j + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, ans);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,175 +257,124 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/22/20190822NCTG4A/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/22/20190822NCPJ4C/" class="archive-article-date">
-  	<time datetime="2019-08-22T13:18:01.137Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/22/20190822NCPJ4C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">解题记录 20190822牛客网普及组模拟赛C题 火龙果田</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/22/20190822NCPJ4C/">解题记录 20190822牛客网普及组模拟赛C题 火龙果田</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NowCoder</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">做题记录</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">普及</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/21/线段树学习笔记【1】/" class="archive-article-date">
-  	<time datetime="2019-08-21T14:00:20.151Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/21/线段树学习笔记【1】/">线段树学习笔记 单点修改+区间查询</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线段树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/21/最短路算法及优化一览/" class="archive-article-date">
-  	<time datetime="2019-08-21T07:30:24.798Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/21/最短路算法及优化一览/">最短路算法及优化一览</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最短路</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
+
+  <div id="comment"></div>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+new Valine({
+    el: '#comment' ,
+    notify:false, 
+    verify:false, 
+    appId: 'PVaN7xiLpg7SkvKTf4NTabCP-gzGzoHsz',
+    appKey: '6oBsOF69b70JV3WWJB4FS1Gm',
+    placeholder: 'ヾﾉ≧∀≦)o欢迎评论!',
+    path:window.location.pathname, 
+    avatar:'mm' 
+});
+</script>
+  
           </div>
         </div>
       </div>
@@ -402,8 +395,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
