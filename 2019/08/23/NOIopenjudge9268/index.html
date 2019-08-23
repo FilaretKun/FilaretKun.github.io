@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Filaret&#39;s Blooooooooooog">
 <meta property="og:description" content="概述温馨提示：小盆友们不要学习题目中的那样酗酒哟~题目描述有误：应为不能连续和三瓶或三瓶以上的酒 很简单的线性DP，和爬台阶有些许相似之处。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-23T07:32:01.801Z">
+<meta property="og:updated_time" content="2019-08-23T07:36:38.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解题记录 NOI.openjudge.cn P9268 酒鬼">
 <meta name="twitter:description" content="概述温馨提示：小盆友们不要学习题目中的那样酗酒哟~题目描述有误：应为不能连续和三瓶或三瓶以上的酒 很简单的线性DP，和爬台阶有些许相似之处。">
@@ -181,7 +181,7 @@
 <h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h3><p>一个数字，喝的酒的最大总体积。遵守以上规则，使得三个连续瓶子中至少一个瓶子是满的。</p>
 <hr>
 <h2 id="转移方程"><a href="#转移方程" class="headerlink" title="转移方程"></a>转移方程</h2><p>我们设$dp_i$表示喝的最后一瓶酒是第$i$瓶，能和到的最大体积的酒。</p>
-<p>显然，如果和第$i$瓶和第$i-1$瓶的话，就不能喝第$i-2$瓶。此时转移方程应为$dp_i=dp_{i-1}+dp_{i-3}+a_{i}$。</p>
+<p>显然，如果和第$i$瓶和第$i-1$瓶的话，就不能喝第$i-2$瓶。此时转移方程应为$dp_i=dp_{i-3}+a_{i-1}+a_{i}$。</p>
 <p>如果不喝第$i-1$瓶酒，就可以喝第$i-2$瓶酒。此时转移方程应为$dp_i=dp_{i-2}+a_{i}$。</p>
 <hr>
 <h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>$dp_1=a_1$和$dp_2=dp_1+a_2$。</p>
