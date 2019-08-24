@@ -9,14 +9,14 @@
   <title>解题记录 20190822牛客网提高组模拟赛A题 麻将 | Filaret&#39;s Blooooooooooog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概述很玄乎的题面…… 总之这题需要好好读题…… 这题需要的语文理解能力非常高…… 然后做的话就前缀和+DP爽就完事了">
-<meta name="keywords" content="OI,做题记录,DP,NowCoder,提高,前缀和,区间DP">
+<meta name="keywords" content="OI,NowCoder,做题记录,提高,DP,前缀和,区间DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解题记录 20190822牛客网提高组模拟赛A题 麻将">
 <meta property="og:url" content="http://yoursite.com/2019/08/22/20190822NCTG4A/index.html">
 <meta property="og:site_name" content="Filaret&#39;s Blooooooooooog">
 <meta property="og:description" content="概述很玄乎的题面…… 总之这题需要好好读题…… 这题需要的语文理解能力非常高…… 然后做的话就前缀和+DP爽就完事了">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-22T15:35:41.974Z">
+<meta property="og:updated_time" content="2019-08-24T14:05:25.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解题记录 20190822牛客网提高组模拟赛A题 麻将">
 <meta name="twitter:description" content="概述很玄乎的题面…… 总之这题需要好好读题…… 这题需要的语文理解能力非常高…… 然后做的话就前缀和+DP爽就完事了">
@@ -175,7 +175,7 @@
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://ac.nowcoder.com/acm/contest/933/A" target="_blank" rel="noopener">链接</a><br>来源：NowCoder</p>
 <p>又是放假的一天，三上千织在玩麻将</p>
 <p>可是并没有牌友来…一姬不在，八木唯和藤田加奈也没来，她只能自己一个人玩了</p>
-<p>众所周知，麻将有两面，为了方便，我们把正面记为1，反面记为0。三上千织把麻将摆成了一个$c \times kc×k$的矩阵，也就是01矩阵，现在她想问你，其中最大的全1正方形有多大呢？</p>
+<p>众所周知，麻将有两面，为了方便，我们把正面记为1，反面记为0。三上千织把麻将摆成了一个$c \times k$的矩阵，也就是01矩阵，现在她想问你，其中最大的全1正方形有多大呢？</p>
 <p>等等…还没问出口，智商181的三上千织就把这题秒了，她很快就写出了DP的状态转移方程，设$f_{i,j}$为以节点i,j为右下角，可构成的最大正方形的边长。那么$f_{i,j}=min(f_{i-1,j},f_{i,j-1},f_{i-1,j-1})+1(a[i][j]=1)$。</p>
 <p>想到这里，千织又想到一个问题，如果允许她把两行麻将交换（也就是矩阵中的两行，可以交换无数次），那么最大的全1矩阵有多大呢？</p>
 <h3 id="输入描述："><a href="#输入描述：" class="headerlink" title="输入描述："></a>输入描述：</h3><p>第一行两个整数$n$,$m$，表示矩阵的大小</p>
@@ -231,19 +231,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">做题记录</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NowCoder</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">做题记录</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">提高</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -499,15 +499,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color4">NowCoder</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,19 +511,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NowCoder</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">堆</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">提高</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,7 +535,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
             
             <div class="clearfix"></div>
