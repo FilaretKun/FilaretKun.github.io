@@ -8,22 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>线段树学习笔记 单点修改+区间查询 | Filaret&#39;s Blooooooooooog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述线段树 (Segment Tree) 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到log级别。 因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就100%能确定是线段树的题了。">
-<meta name="keywords" content="OI,线段树,模板,学习笔记">
+  <meta name="description" content="概述卡特兰数 (Catalan Number) 是组合数学中极其重要的一部分。它是一个数列，并且有多种方式可以推出其递推公式或组合公式。我也不知道为什么要考它 它可以用dp去做，时间复杂度大概是$O(N^2)$。 前13项分别为1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900。">
+<meta name="keywords" content="OI,学习笔记,数论,卡特兰数,组合数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线段树学习笔记 单点修改+区间查询">
-<meta property="og:url" content="http://yoursite.com/2019/08/21/线段树学习笔记【1】/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/卡特兰数学习笔记/index.html">
 <meta property="og:site_name" content="Filaret&#39;s Blooooooooooog">
-<meta property="og:description" content="概述线段树 (Segment Tree) 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到log级别。 因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就100%能确定是线段树的题了。">
+<meta property="og:description" content="概述卡特兰数 (Catalan Number) 是组合数学中极其重要的一部分。它是一个数列，并且有多种方式可以推出其递推公式或组合公式。我也不知道为什么要考它 它可以用dp去做，时间复杂度大概是$O(N^2)$。 前13项分别为1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.loli.net/2019/08/21/5ICpQYuy94ALljT.png">
-<meta property="og:image" content="https://i.loli.net/2019/08/21/MYSCgFtRkanlW46.png">
-<meta property="og:image" content="https://i.loli.net/2019/08/26/76StaqhfGBOzLAN.png">
-<meta property="og:updated_time" content="2019-08-26T10:20:46.307Z">
+<meta property="og:image" content="https://i.loli.net/2019/08/26/Euflj5qJHGNyV1i.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/26/eKxOhPUagG6l4L8.png">
+<meta property="og:updated_time" content="2019-08-26T12:05:56.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线段树学习笔记 单点修改+区间查询">
-<meta name="twitter:description" content="概述线段树 (Segment Tree) 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到log级别。 因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就100%能确定是线段树的题了。">
-<meta name="twitter:image" content="https://i.loli.net/2019/08/21/5ICpQYuy94ALljT.png">
+<meta name="twitter:description" content="概述卡特兰数 (Catalan Number) 是组合数学中极其重要的一部分。它是一个数列，并且有多种方式可以推出其递推公式或组合公式。我也不知道为什么要考它 它可以用dp去做，时间复杂度大概是$O(N^2)$。 前13项分别为1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900。">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/26/Euflj5qJHGNyV1i.png">
   
     <link rel="alternative" href="/atom.xml" title="Filaret&#39;s Blooooooooooog" type="application/atom+xml">
   
@@ -153,7 +152,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-线段树学习笔记【1】" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-卡特兰数学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -165,53 +164,28 @@
   
 
         
-        <a href="/2019/08/21/线段树学习笔记【1】/" class="archive-article-date">
-  	<time datetime="2019-08-21T14:00:20.151Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
+        <a href="/2019/08/26/卡特兰数学习笔记/" class="archive-article-date">
+  	<time datetime="2019-08-26T10:53:52.419Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>线段树 (Segment Tree)</strong> 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到<code>log</code>级别。</p>
-<p>因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就<strong>100%</strong>能确定是线段树的题了。</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>卡特兰数 (Catalan Number)</strong> 是组合数学中极其重要的一部分。它是一个数列，并且有多种方式可以推出其递推公式或组合公式。<del>我也不知道为什么要考它</del></p>
+<p>它可以用dp去做，时间复杂度大概是$O(N^2)$。</p>
+<p>前13项分别为1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900。</p>
 <a id="more"></a>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定包含$n$个数的数组$a_1, a_2, …, a_n$。现在有三种操作：</p>
-<ol>
-<li>查询单点上的数；</li>
-<li>查询区间<code>l~r</code>中的最小值；</li>
-<li>将$a_i$的值变为$x$</li>
-</ol>
-<p>这是最基础的线段树裸题。本文将用这个示例来解释线段树未加各种高端操作的基础算法。</p>
-<p>线段树的结构为二叉树。每一个节点中包含其区间的<code>l&amp;r border</code>，以及这个节点的<code>value</code>。</p>
-<p>我们设此题中共包含10个数，分别为<code>1 3 -1 25 7 -4 8 -1025 2097 -5</code>。</p>
-<p>▼为根据以上数据建的图</p>
-<p><img src="https://i.loli.net/2019/08/21/5ICpQYuy94ALljT.png" alt></p>
-<p>可见，线段树的思想和二分法有那么一点相似：都是将一个区间分为两份，再在其中进行具体操作。在上图之中标为浅灰的<strong>叶节点</strong>均为数据中出现的单个数。它的父节点代表了对它的两个子节点进行如题的求最小值操作的结果。</p>
-<h3 id="build-操作"><a href="#build-操作" class="headerlink" title="build()操作"></a><code>build()</code>操作</h3><p>Build，意为构造。其可以根据数据和题意将整个线段树构建出来。现在我们设存放线段树的数组为<code>mins (Minimum of Segment)</code>。假设某节点下标为<code>i</code>，则其左儿子（若存在）下标为<code>2*i</code>，右儿子（若存在）下标为<code>2*i+1</code>。</p>
-<p>▼使用递归+回溯写出的代码段</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">10000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> mins[<span class="number">4</span> * MAXN], a[MAXN]; <span class="comment">// a数组为输入的数据</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123; <span class="comment">// id为上述的下标，l和r分别为左边界和右边界</span></span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 如果此时l==r，也就是此节点为叶节点时</span></span><br><span class="line">        mins[id] = a[l]; <span class="comment">// 直接赋值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 这里求一个区间分为两份的切割点</span></span><br><span class="line">    build(id * <span class="number">2</span>, l, mid); <span class="comment">// 构造左儿子</span></span><br><span class="line">    build(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r); <span class="comment">// 构造右儿子</span></span><br><span class="line">    mins[id] = min(mins[id * <span class="number">2</span>], mins[id * <span class="number">2</span> + <span class="number">1</span>]); <span class="comment">// 为不是叶节点的线段节点按照题目要求赋值</span></span><br><span class="line">    <span class="keyword">return</span>; <span class="comment">// 加上无用return辟邪（雾）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>复杂度为$Θ(n)$。</p>
-<h3 id="update-操作"><a href="#update-操作" class="headerlink" title="update()操作"></a><code>update()</code>操作</h3><p>Update, 意为更新。在这篇博文中主要实现单点更新。</p>
-<p>在进行<code>update()</code>时大可不必将线段树整个重新<code>build()</code>一下（那样复杂度又成n了还不如直接打暴力╰（‵□′）╯）……</p>
-<p><del>动动你聪明的脑筋</del>其实<code>update</code>影响的只是那个节点向上的一条链。就比如说我们将之前的<code>a[6]</code>元素从<code>-4</code>改成<code>-1028</code>，那么我们需要需要修改的只是标红的线段。</p>
-<p>▼如下：</p>
-<p><img src="https://i.loli.net/2019/08/21/MYSCgFtRkanlW46.png" alt></p>
-<p>那么很容易我们就能写出<code>update()</code>的代码。这里选用从上向下修改的代码，我们的目标是将<code>op (operated)</code>位置上的数修改为<code>nnum (new number)</code>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> op, <span class="keyword">int</span> nnum)</span> </span>&#123; <span class="comment">// id，l，r的意义如上</span></span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 我们找到了大宝贝</span></span><br><span class="line">        mins[id] = nnum; <span class="comment">// 赋完值</span></span><br><span class="line">        <span class="keyword">return</span>; <span class="comment">// 就跑</span></span><br><span class="line">    &#125; <span class="comment">// 贼刺激</span></span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 找中间点来康康op在哪边</span></span><br><span class="line">    <span class="keyword">if</span>(op &lt;= mid) &#123; <span class="comment">// 在左边或就是mid</span></span><br><span class="line">        update(id * <span class="number">2</span>, l, mid, op, nnum); <span class="comment">// op和nnun恒不变</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; <span class="comment">// 在右边</span></span><br><span class="line">        update(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r, op, nnum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>; <span class="comment">// 无用return辟邪</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>复杂度为$Θ(log(n))$。</p>
-<h3 id="point-query-操作"><a href="#point-query-操作" class="headerlink" title="point_query()操作"></a><code>point_query()</code>操作</h3><p>Point query，意为单点查询。</p>
-<p>和单点更新有相似之处，都是一条链走到叶节点。利用类似二分查找的方式查找即可。我们设<code>x</code>为我们要查找的元素的下标，则很容易写出如下代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">point_query</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> x)</span> </span>&#123; <span class="comment">// id, l, r, x意义如上</span></span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 找到了只有一个元素的线段（叶节点)</span></span><br><span class="line">        <span class="keyword">return</span> mins[id]; <span class="comment">//返回找到的值即可</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 计算船新的mid值</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= mid) &#123; <span class="comment">// 在左边</span></span><br><span class="line">        <span class="keyword">return</span> point_query(id * <span class="number">2</span>, l, mid, x); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; <span class="comment">// 在右边</span></span><br><span class="line">        <span class="keyword">return</span> point_query(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r, x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>; <span class="comment">// 无意义return保平安</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>复杂度和单点更新一样，为$Θ(log(n))$。</p>
-<h3 id="segment-query-操作"><a href="#segment-query-操作" class="headerlink" title="segment_query()操作"></a><code>segment_query()</code>操作</h3><p>Segment query，意为区间查询。</p>
-<p>这个操作是线段树中最为复杂的操作。</p>
-<p>我们用之前没有进行<code>update</code>操作的构造好的线段树进行对区间<code>3~6</code>的<code>segment_query()</code>操作。在图中，绿色的部分代表在查找区间时经过的区间，而红色的部分代表最后要与答案合并的区间。</p>
-<p>▼如下：</p>
-<p><img src="https://i.loli.net/2019/08/26/76StaqhfGBOzLAN.png" alt></p>
-<p>对于最终结果，直接对选出来的区间进行求ans操作即可（在这里为求min值）。根据以上信息即可写出代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">segment_query</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="comment">// id, l, r意义如上，x为查询左端点，y为查询右端点</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= l &amp;&amp; r &gt;= l) &#123; <span class="comment">// 如果要查询的区间完全包含当前搜索的区间，直接返回值即可</span></span><br><span class="line">        <span class="keyword">return</span> mins[id];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 找到分段点</span></span><br><span class="line">    <span class="keyword">int</span> ans = INF; <span class="comment">// 记录答案的变量</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= mid) &#123; <span class="comment">// 包含左区间</span></span><br><span class="line">        ans = min(ans, segment_query(id * <span class="number">2</span>, l, mid, x, y)); <span class="comment">// 记录答案</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(y &gt; mid) &#123; <span class="comment">// 包含右区间</span></span><br><span class="line">        ans = min(ans, segment_query(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r, x, y)); <span class="comment">// 记录答案</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 找到了只有一个元素的线段（叶节点)</span></span><br><span class="line">        <span class="keyword">return</span> mins[id]; <span class="comment">//返回找到的值即可</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans; <span class="comment">// 无意义ret……抱歉走错了 直接返回答案即可</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>复杂度和单点查询一样，为$Θ(log(n))$。</p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h4 id="二叉树计数问题"><a href="#二叉树计数问题" class="headerlink" title="二叉树计数问题"></a>二叉树计数问题</h4><p><strong>题目描述</strong><br>求有$n$个节点的二叉树的形态数量。</p>
+<p><strong>解析</strong><br>标准卡特兰数模板。我们考虑用动态规划来解这道题。状态则定义<code>dp[i]</code>为有$i$个节点的二叉树的形态数量。则标准的思考过程如下。</p>
+<p><img src="https://i.loli.net/2019/08/26/Euflj5qJHGNyV1i.png" alt><br>▲为问题初始的状态。有一个根节点和一个形状未知的二叉子树。</p>
+<p>接下来我们进一步思考：如果能将二叉子数分成两个不同的部分，就能一下子分到底。</p>
+<p>显然，一个二叉树的节点可以有左子树和右子树，且两棵子树互相只有结点数是被关联到一起的。如果左子树的结点数为$i$，则右子树大的结点数即为$n - 1 - i$。这时根据乘法原理可得转移方程<code>dp[n] = dp[i] * dp[n - 1 - i];</code>。推导过程如下图。</p>
+<p><img src="https://i.loli.net/2019/08/26/eKxOhPUagG6l4L8.png" alt></p>
+<p>进一步思考：既然我们采用的方法是DP，那就需要有初始化（若采用记忆化搜索则是边界条件）。考虑已知的对于<code>dp</code>数组，只有<code>dp[1]</code>可以确定为值为1。</p>
+<p>根据上面推导可以写出代码如下：</p>
+<p>▼数组DP<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">10000</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"><span class="keyword">int</span> dp[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N);</span><br><span class="line"></span><br><span class="line">    dp[<span class="number">0</span>] = dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> ; i &lt;= N ; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ; j &lt; i ; j ++) &#123;</span><br><span class="line">            </span><br><span class="line">            dp[i] += dp[j] * dp[i - j - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= N ; i ++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, dp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>▼记忆化搜索<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">10000</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"><span class="keyword">int</span> dp[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DP</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dp[x]) &#123;</span><br><span class="line">        <span class="keyword">return</span> dp[x];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(x == <span class="number">0</span> || x == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> dp[x] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; x ; i ++) &#123;</span><br><span class="line">        tmp += DP(i) * DP(x - <span class="number">1</span> - i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dp[x] = tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N);</span><br><span class="line"></span><br><span class="line">    DP(N);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= N ; i ++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, dp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -250,15 +224,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线段树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">卡特兰数</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">组合数学</a>
         		</li>
       		
 		</ul>
@@ -314,7 +292,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/21/线段树学习笔记【1】/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/26/卡特兰数学习笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -328,18 +306,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/22/20190822NCPJ4C/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          解题记录 20190822牛客网普及组模拟赛C题 火龙果田
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/21/最短路算法及优化一览/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">最短路算法及优化一览</div>
+    <a href="/2019/08/23/NOIopenjudge9268/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">解题记录 NOI.openjudge.cn P9268 酒鬼</div>
       <i class="icon-circle-right"></i>
     </a>
   

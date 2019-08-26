@@ -6,24 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>线段树学习笔记 单点修改+区间查询 | Filaret&#39;s Blooooooooooog</title>
+  <title>Tag: 组合数学 | Filaret&#39;s Blooooooooooog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述线段树 (Segment Tree) 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到log级别。 因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就100%能确定是线段树的题了。">
-<meta name="keywords" content="OI,线段树,模板,学习笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="线段树学习笔记 单点修改+区间查询">
-<meta property="og:url" content="http://yoursite.com/2019/08/21/线段树学习笔记【1】/index.html">
+  <meta name="description" content="初二弱鸡C++ OIER">
+<meta name="keywords" content="OI,日常,砸电脑,瞎搞">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Filaret&#39;s Blooooooooooog">
+<meta property="og:url" content="http://yoursite.com/tags/组合数学/index.html">
 <meta property="og:site_name" content="Filaret&#39;s Blooooooooooog">
-<meta property="og:description" content="概述线段树 (Segment Tree) 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到log级别。 因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就100%能确定是线段树的题了。">
+<meta property="og:description" content="初二弱鸡C++ OIER">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.loli.net/2019/08/21/5ICpQYuy94ALljT.png">
-<meta property="og:image" content="https://i.loli.net/2019/08/21/MYSCgFtRkanlW46.png">
-<meta property="og:image" content="https://i.loli.net/2019/08/26/76StaqhfGBOzLAN.png">
-<meta property="og:updated_time" content="2019-08-26T10:20:46.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线段树学习笔记 单点修改+区间查询">
-<meta name="twitter:description" content="概述线段树 (Segment Tree) 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到log级别。 因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就100%能确定是线段树的题了。">
-<meta name="twitter:image" content="https://i.loli.net/2019/08/21/5ICpQYuy94ALljT.png">
+<meta name="twitter:title" content="Filaret&#39;s Blooooooooooog">
+<meta name="twitter:description" content="初二弱鸡C++ OIER">
   
     <link rel="alternative" href="/atom.xml" title="Filaret&#39;s Blooooooooooog" type="application/atom+xml">
   
@@ -153,94 +148,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-线段树学习笔记【1】" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      线段树学习笔记 单点修改+区间查询
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/08/26/卡特兰数学习笔记/" class="archive-article-date">
+  	<time datetime="2019-08-26T10:53:52.419Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/26/卡特兰数学习笔记/">线段树学习笔记 单点修改+区间查询</a>
     </h1>
   
 
-        
-        <a href="/2019/08/21/线段树学习笔记【1】/" class="archive-article-date">
-  	<time datetime="2019-08-21T14:00:20.151Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>线段树 (Segment Tree)</strong> 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到<code>log</code>级别。</p>
-<p>因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就<strong>100%</strong>能确定是线段树的题了。</p>
-<a id="more"></a>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定包含$n$个数的数组$a_1, a_2, …, a_n$。现在有三种操作：</p>
-<ol>
-<li>查询单点上的数；</li>
-<li>查询区间<code>l~r</code>中的最小值；</li>
-<li>将$a_i$的值变为$x$</li>
-</ol>
-<p>这是最基础的线段树裸题。本文将用这个示例来解释线段树未加各种高端操作的基础算法。</p>
-<p>线段树的结构为二叉树。每一个节点中包含其区间的<code>l&amp;r border</code>，以及这个节点的<code>value</code>。</p>
-<p>我们设此题中共包含10个数，分别为<code>1 3 -1 25 7 -4 8 -1025 2097 -5</code>。</p>
-<p>▼为根据以上数据建的图</p>
-<p><img src="https://i.loli.net/2019/08/21/5ICpQYuy94ALljT.png" alt></p>
-<p>可见，线段树的思想和二分法有那么一点相似：都是将一个区间分为两份，再在其中进行具体操作。在上图之中标为浅灰的<strong>叶节点</strong>均为数据中出现的单个数。它的父节点代表了对它的两个子节点进行如题的求最小值操作的结果。</p>
-<h3 id="build-操作"><a href="#build-操作" class="headerlink" title="build()操作"></a><code>build()</code>操作</h3><p>Build，意为构造。其可以根据数据和题意将整个线段树构建出来。现在我们设存放线段树的数组为<code>mins (Minimum of Segment)</code>。假设某节点下标为<code>i</code>，则其左儿子（若存在）下标为<code>2*i</code>，右儿子（若存在）下标为<code>2*i+1</code>。</p>
-<p>▼使用递归+回溯写出的代码段</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">10000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> mins[<span class="number">4</span> * MAXN], a[MAXN]; <span class="comment">// a数组为输入的数据</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123; <span class="comment">// id为上述的下标，l和r分别为左边界和右边界</span></span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 如果此时l==r，也就是此节点为叶节点时</span></span><br><span class="line">        mins[id] = a[l]; <span class="comment">// 直接赋值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 这里求一个区间分为两份的切割点</span></span><br><span class="line">    build(id * <span class="number">2</span>, l, mid); <span class="comment">// 构造左儿子</span></span><br><span class="line">    build(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r); <span class="comment">// 构造右儿子</span></span><br><span class="line">    mins[id] = min(mins[id * <span class="number">2</span>], mins[id * <span class="number">2</span> + <span class="number">1</span>]); <span class="comment">// 为不是叶节点的线段节点按照题目要求赋值</span></span><br><span class="line">    <span class="keyword">return</span>; <span class="comment">// 加上无用return辟邪（雾）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>复杂度为$Θ(n)$。</p>
-<h3 id="update-操作"><a href="#update-操作" class="headerlink" title="update()操作"></a><code>update()</code>操作</h3><p>Update, 意为更新。在这篇博文中主要实现单点更新。</p>
-<p>在进行<code>update()</code>时大可不必将线段树整个重新<code>build()</code>一下（那样复杂度又成n了还不如直接打暴力╰（‵□′）╯）……</p>
-<p><del>动动你聪明的脑筋</del>其实<code>update</code>影响的只是那个节点向上的一条链。就比如说我们将之前的<code>a[6]</code>元素从<code>-4</code>改成<code>-1028</code>，那么我们需要需要修改的只是标红的线段。</p>
-<p>▼如下：</p>
-<p><img src="https://i.loli.net/2019/08/21/MYSCgFtRkanlW46.png" alt></p>
-<p>那么很容易我们就能写出<code>update()</code>的代码。这里选用从上向下修改的代码，我们的目标是将<code>op (operated)</code>位置上的数修改为<code>nnum (new number)</code>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> op, <span class="keyword">int</span> nnum)</span> </span>&#123; <span class="comment">// id，l，r的意义如上</span></span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 我们找到了大宝贝</span></span><br><span class="line">        mins[id] = nnum; <span class="comment">// 赋完值</span></span><br><span class="line">        <span class="keyword">return</span>; <span class="comment">// 就跑</span></span><br><span class="line">    &#125; <span class="comment">// 贼刺激</span></span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 找中间点来康康op在哪边</span></span><br><span class="line">    <span class="keyword">if</span>(op &lt;= mid) &#123; <span class="comment">// 在左边或就是mid</span></span><br><span class="line">        update(id * <span class="number">2</span>, l, mid, op, nnum); <span class="comment">// op和nnun恒不变</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; <span class="comment">// 在右边</span></span><br><span class="line">        update(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r, op, nnum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>; <span class="comment">// 无用return辟邪</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>复杂度为$Θ(log(n))$。</p>
-<h3 id="point-query-操作"><a href="#point-query-操作" class="headerlink" title="point_query()操作"></a><code>point_query()</code>操作</h3><p>Point query，意为单点查询。</p>
-<p>和单点更新有相似之处，都是一条链走到叶节点。利用类似二分查找的方式查找即可。我们设<code>x</code>为我们要查找的元素的下标，则很容易写出如下代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">point_query</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> x)</span> </span>&#123; <span class="comment">// id, l, r, x意义如上</span></span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 找到了只有一个元素的线段（叶节点)</span></span><br><span class="line">        <span class="keyword">return</span> mins[id]; <span class="comment">//返回找到的值即可</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 计算船新的mid值</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= mid) &#123; <span class="comment">// 在左边</span></span><br><span class="line">        <span class="keyword">return</span> point_query(id * <span class="number">2</span>, l, mid, x); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; <span class="comment">// 在右边</span></span><br><span class="line">        <span class="keyword">return</span> point_query(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r, x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>; <span class="comment">// 无意义return保平安</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>复杂度和单点更新一样，为$Θ(log(n))$。</p>
-<h3 id="segment-query-操作"><a href="#segment-query-操作" class="headerlink" title="segment_query()操作"></a><code>segment_query()</code>操作</h3><p>Segment query，意为区间查询。</p>
-<p>这个操作是线段树中最为复杂的操作。</p>
-<p>我们用之前没有进行<code>update</code>操作的构造好的线段树进行对区间<code>3~6</code>的<code>segment_query()</code>操作。在图中，绿色的部分代表在查找区间时经过的区间，而红色的部分代表最后要与答案合并的区间。</p>
-<p>▼如下：</p>
-<p><img src="https://i.loli.net/2019/08/26/76StaqhfGBOzLAN.png" alt></p>
-<p>对于最终结果，直接对选出来的区间进行求ans操作即可（在这里为求min值）。根据以上信息即可写出代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">segment_query</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="comment">// id, l, r意义如上，x为查询左端点，y为查询右端点</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= l &amp;&amp; r &gt;= l) &#123; <span class="comment">// 如果要查询的区间完全包含当前搜索的区间，直接返回值即可</span></span><br><span class="line">        <span class="keyword">return</span> mins[id];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 找到分段点</span></span><br><span class="line">    <span class="keyword">int</span> ans = INF; <span class="comment">// 记录答案的变量</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= mid) &#123; <span class="comment">// 包含左区间</span></span><br><span class="line">        ans = min(ans, segment_query(id * <span class="number">2</span>, l, mid, x, y)); <span class="comment">// 记录答案</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(y &gt; mid) &#123; <span class="comment">// 包含右区间</span></span><br><span class="line">        ans = min(ans, segment_query(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r, x, y)); <span class="comment">// 记录答案</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 找到了只有一个元素的线段（叶节点)</span></span><br><span class="line">        <span class="keyword">return</span> mins[id]; <span class="comment">//返回找到的值即可</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans; <span class="comment">// 无意义ret……抱歉走错了 直接返回答案即可</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>复杂度和单点查询一样，为$Θ(log(n))$。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -250,147 +187,39 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线段树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">卡特兰数</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">组合数学</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/21/线段树学习笔记【1】/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/08/22/20190822NCPJ4C/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          解题记录 20190822牛客网普及组模拟赛C题 火龙果田
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/08/21/最短路算法及优化一览/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">最短路算法及优化一览</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
-
-  <div id="comment"></div>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script>
-new Valine({
-    el: '#comment' ,
-    notify:false, 
-    verify:false, 
-    appId: 'PVaN7xiLpg7SkvKTf4NTabCP-gzGzoHsz',
-    appKey: '6oBsOF69b70JV3WWJB4FS1Gm',
-    placeholder: 'ヾﾉ≧∀≦)o欢迎评论!',
-    path:window.location.pathname, 
-    avatar:'mm' 
-});
-</script>
-  
           </div>
         </div>
       </div>
@@ -411,9 +240,9 @@ new Valine({
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
