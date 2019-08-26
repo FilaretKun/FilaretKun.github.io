@@ -9,7 +9,7 @@
   <title>线段树学习笔记 单点修改+区间查询 | Filaret&#39;s Blooooooooooog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概述线段树 (Segment Tree) 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到log级别。 因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就100%能确定是线段树的题了。">
-<meta name="keywords" content="OI,线段树,模板,学习笔记">
+<meta name="keywords" content="OI,模板,线段树,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线段树学习笔记 单点修改+区间查询">
 <meta property="og:url" content="http://yoursite.com/2019/08/21/线段树学习笔记【1】/index.html">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/08/21/5ICpQYuy94ALljT.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/21/MYSCgFtRkanlW46.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/26/76StaqhfGBOzLAN.png">
-<meta property="og:updated_time" content="2019-08-26T10:19:03.006Z">
+<meta property="og:updated_time" content="2019-08-26T10:20:46.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线段树学习笔记 单点修改+区间查询">
 <meta name="twitter:description" content="概述线段树 (Segment Tree) 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到log级别。 因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就100%能确定是线段树的题了。">
@@ -211,6 +211,8 @@
 <p><img src="https://i.loli.net/2019/08/26/76StaqhfGBOzLAN.png" alt></p>
 <p>对于最终结果，直接对选出来的区间进行求ans操作即可（在这里为求min值）。根据以上信息即可写出代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">segment_query</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="comment">// id, l, r意义如上，x为查询左端点，y为查询右端点</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= l &amp;&amp; r &gt;= l) &#123; <span class="comment">// 如果要查询的区间完全包含当前搜索的区间，直接返回值即可</span></span><br><span class="line">        <span class="keyword">return</span> mins[id];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 找到分段点</span></span><br><span class="line">    <span class="keyword">int</span> ans = INF; <span class="comment">// 记录答案的变量</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= mid) &#123; <span class="comment">// 包含左区间</span></span><br><span class="line">        ans = min(ans, segment_query(id * <span class="number">2</span>, l, mid, x, y)); <span class="comment">// 记录答案</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(y &gt; mid) &#123; <span class="comment">// 包含右区间</span></span><br><span class="line">        ans = min(ans, segment_query(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r, x, y)); <span class="comment">// 记录答案</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 找到了只有一个元素的线段（叶节点)</span></span><br><span class="line">        <span class="keyword">return</span> mins[id]; <span class="comment">//返回找到的值即可</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans; <span class="comment">// 无意义ret……抱歉走错了 直接返回答案即可</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>复杂度和单点查询一样，为$Θ(log(n))$。</p>
+
       
 
       
@@ -248,11 +250,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线段树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线段树</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -504,10 +506,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NowCoder</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">普及</a>
               </li>
              
@@ -516,15 +514,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NowCoder</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">堆</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">提高</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,19 +554,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
             
             <div class="clearfix"></div>
