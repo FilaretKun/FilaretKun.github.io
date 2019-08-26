@@ -9,7 +9,7 @@
   <title>线段树学习笔记 单点修改+区间查询 | Filaret&#39;s Blooooooooooog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概述线段树 (Segment Tree) 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到log级别。 因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就100%能确定是线段树的题了。">
-<meta name="keywords" content="OI,模板,线段树,学习笔记">
+<meta name="keywords" content="OI,线段树,模板,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线段树学习笔记 单点修改+区间查询">
 <meta property="og:url" content="http://yoursite.com/2019/08/21/线段树学习笔记【1】/index.html">
@@ -18,7 +18,8 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/08/21/5ICpQYuy94ALljT.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/21/MYSCgFtRkanlW46.png">
-<meta property="og:updated_time" content="2019-08-26T08:33:05.414Z">
+<meta property="og:image" content="https://i.loli.net/2019/08/26/76StaqhfGBOzLAN.png">
+<meta property="og:updated_time" content="2019-08-26T10:19:03.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线段树学习笔记 单点修改+区间查询">
 <meta name="twitter:description" content="概述线段树 (Segment Tree) 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到log级别。 因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就100%能确定是线段树的题了。">
@@ -175,7 +176,13 @@
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>线段树 (Segment Tree)</strong> 大概是一种可以连续修改+连续查询的数据结构，其复杂度基本上能达到<code>log</code>级别。</p>
 <p>因其复杂度较低的尿性，经常被毒瘤出题人放到各种区间题目。所以说如果不能使用前缀和或差分解决的就<strong>100%</strong>能确定是线段树的题了。</p>
 <a id="more"></a>
-<h2 id="单点修改-区间查询最小值"><a href="#单点修改-区间查询最小值" class="headerlink" title="单点修改+区间查询最小值"></a>单点修改+区间查询最小值</h2><p>这是最基础的线段树裸题。本文将用这个示例来解释线段树未加各种高端操作的基础算法。</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定包含$n$个数的数组$a_1, a_2, …, a_n$。现在有三种操作：</p>
+<ol>
+<li>查询单点上的数；</li>
+<li>查询区间<code>l~r</code>中的最小值；</li>
+<li>将$a_i$的值变为$x$</li>
+</ol>
+<p>这是最基础的线段树裸题。本文将用这个示例来解释线段树未加各种高端操作的基础算法。</p>
 <p>线段树的结构为二叉树。每一个节点中包含其区间的<code>l&amp;r border</code>，以及这个节点的<code>value</code>。</p>
 <p>我们设此题中共包含10个数，分别为<code>1 3 -1 25 7 -4 8 -1025 2097 -5</code>。</p>
 <p>▼为根据以上数据建的图</p>
@@ -198,7 +205,12 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">point_query</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> x)</span> </span>&#123; <span class="comment">// id, l, r, x意义如上</span></span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 找到了只有一个元素的线段（叶节点)</span></span><br><span class="line">        <span class="keyword">return</span> mins[id]; <span class="comment">//返回找到的值即可</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 计算船新的mid值</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= mid) &#123; <span class="comment">// 在左边</span></span><br><span class="line">        <span class="keyword">return</span> point_query(id * <span class="number">2</span>, l, mid, x); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; <span class="comment">// 在右边</span></span><br><span class="line">        <span class="keyword">return</span> point_query(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r, x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>; <span class="comment">// 无意义return保平安</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>复杂度和单点更新一样，为$Θ(log(n))$。</p>
 <h3 id="segment-query-操作"><a href="#segment-query-操作" class="headerlink" title="segment_query()操作"></a><code>segment_query()</code>操作</h3><p>Segment query，意为区间查询。</p>
-
+<p>这个操作是线段树中最为复杂的操作。</p>
+<p>我们用之前没有进行<code>update</code>操作的构造好的线段树进行对区间<code>3~6</code>的<code>segment_query()</code>操作。在图中，绿色的部分代表在查找区间时经过的区间，而红色的部分代表最后要与答案合并的区间。</p>
+<p>▼如下：</p>
+<p><img src="https://i.loli.net/2019/08/26/76StaqhfGBOzLAN.png" alt></p>
+<p>对于最终结果，直接对选出来的区间进行求ans操作即可（在这里为求min值）。根据以上信息即可写出代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">segment_query</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="comment">// id, l, r意义如上，x为查询左端点，y为查询右端点</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= l &amp;&amp; r &gt;= l) &#123; <span class="comment">// 如果要查询的区间完全包含当前搜索的区间，直接返回值即可</span></span><br><span class="line">        <span class="keyword">return</span> mins[id];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>; <span class="comment">// 找到分段点</span></span><br><span class="line">    <span class="keyword">int</span> ans = INF; <span class="comment">// 记录答案的变量</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= mid) &#123; <span class="comment">// 包含左区间</span></span><br><span class="line">        ans = min(ans, segment_query(id * <span class="number">2</span>, l, mid, x, y)); <span class="comment">// 记录答案</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(y &gt; mid) &#123; <span class="comment">// 包含右区间</span></span><br><span class="line">        ans = min(ans, segment_query(id * <span class="number">2</span> + <span class="number">1</span>, mid + <span class="number">1</span>, r, x, y)); <span class="comment">// 记录答案</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123; <span class="comment">// 找到了只有一个元素的线段（叶节点)</span></span><br><span class="line">        <span class="keyword">return</span> mins[id]; <span class="comment">//返回找到的值即可</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans; <span class="comment">// 无意义ret……抱歉走错了 直接返回答案即可</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -236,11 +248,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线段树</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线段树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模板</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -508,11 +520,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+                <a href="javascript:void(0)" class="js-tag color3">提高</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">提高</a>
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,7 +536,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,15 +544,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
             
             <div class="clearfix"></div>
