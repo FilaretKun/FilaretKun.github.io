@@ -9,7 +9,7 @@
   <title>卡特兰数学习笔记 | Filaret&#39;s Blooooooooooog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概述卡特兰数 (Catalan Number) 是组合数学中极其重要的一部分。它是一个数列，并且有多种方式可以推出其递推公式或组合公式。我也不知道为什么要考它 它可以用dp去做，时间复杂度大概是$O(N^2)$。 前13项分别为1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900。">
-<meta name="keywords" content="OI,学习笔记,数论,卡特兰数,组合数学">
+<meta name="keywords" content="OI,数论,卡特兰数,组合数学,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="卡特兰数学习笔记">
 <meta property="og:url" content="http://yoursite.com/2019/08/26/卡特兰数学习笔记/index.html">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/08/26/Euflj5qJHGNyV1i.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/26/eKxOhPUagG6l4L8.png">
-<meta property="og:updated_time" content="2019-08-26T12:07:21.954Z">
+<meta property="og:updated_time" content="2019-08-26T12:22:24.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卡特兰数学习笔记">
 <meta name="twitter:description" content="概述卡特兰数 (Catalan Number) 是组合数学中极其重要的一部分。它是一个数列，并且有多种方式可以推出其递推公式或组合公式。我也不知道为什么要考它 它可以用dp去做，时间复杂度大概是$O(N^2)$。 前13项分别为1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900。">
@@ -186,6 +186,7 @@
 <p>根据上面推导可以写出代码如下：</p>
 <p>▼数组DP<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">10000</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"><span class="keyword">int</span> dp[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N);</span><br><span class="line"></span><br><span class="line">    dp[<span class="number">0</span>] = dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> ; i &lt;= N ; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ; j &lt; i ; j ++) &#123;</span><br><span class="line">            </span><br><span class="line">            dp[i] += dp[j] * dp[i - j - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= N ; i ++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, dp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>▼记忆化搜索<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">10000</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"><span class="keyword">int</span> dp[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DP</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dp[x]) &#123;</span><br><span class="line">        <span class="keyword">return</span> dp[x];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(x == <span class="number">0</span> || x == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> dp[x] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; x ; i ++) &#123;</span><br><span class="line">        tmp += DP(i) * DP(x - <span class="number">1</span> - i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dp[x] = tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N);</span><br><span class="line"></span><br><span class="line">    DP(N);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= N ; i ++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, dp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过这道题目我们可以得到卡特兰数的一种递推公式：<script type="math/tex">dp_n=\sum_{i=0}^{n-1}dp_i\times dp_{n-i-1}</script></p>
 
       
 
@@ -224,10 +225,6 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
         		</li>
       		 
@@ -237,6 +234,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">组合数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
       		
 		</ul>
@@ -495,6 +496,22 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">卡特兰数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">组合数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">提高</a>
               </li>
              
@@ -520,22 +537,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡特兰数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">组合数学</a>
               </li>
             
             <div class="clearfix"></div>
